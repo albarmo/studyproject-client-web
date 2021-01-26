@@ -1,0 +1,30 @@
+.navbar-container {
+  background-color: transparent;
+  height: 10%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  background-color: transparent;
+  height: auto;
+  width: auto;
+  text-align: left;
+  margin-left: 6%;
+}
+
+.menu {
+  background-color: transparent;
+  height: auto;
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.menu h3 {
+  cursor: pointer;
+}

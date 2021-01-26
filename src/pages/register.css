@@ -1,0 +1,60 @@
+.register {
+  height: 100vh;
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.section-register {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.section-left-register {
+  background-image: url("../images/register-v2.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 30%;
+  height: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  color: white;
+  font-weight: bold;
+}
+
+.section-right-register {
+  background-color: royalblue;
+  width: 70%;
+  height: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.content-up {
+  font-weight: normal;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content-up p {
+  font-weight: normal;
+  width: 60%;
+}
+
+.content-down h3 {
+  cursor: pointer;
+  color: #ffffff;
+}
