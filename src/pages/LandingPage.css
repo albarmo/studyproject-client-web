@@ -72,8 +72,8 @@
 }
 
 .btn-landing {
-  background-color: #6c99cd;
-  width: 150px;
+  background-color: transparent;
+  width: 30%;
   height: 40px;
   border-radius: 20px;
   text-align: center;
@@ -81,7 +81,15 @@
   justify-content: center;
   align-items: center;
   font-size: larger;
-  font-weight: bolder;
+  font-weight: bold;
   color: white;
   text-decoration: none;
+  cursor: pointer;
+
+  background: rgb(47, 8, 181);
+  background: linear-gradient(
+    180deg,
+    rgba(47, 8, 181, 1) 0%,
+    rgba(0, 75, 252, 1) 100%
+  );
 }
