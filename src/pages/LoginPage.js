@@ -1,7 +1,7 @@
-import React, { useState, UseEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Form, Typography } from "antd";
-import { userLogin } from "../store/action/userAction";
+import { userLogin, userLogout } from "../store/action/userAction";
 import { Link, useHistory } from "react-router-dom";
 import swal from "sweetalert";
 
@@ -12,35 +12,35 @@ import Lottie from "react-lottie";
 import animationData from "../lotties/38435-register.json";
 
 const LoginPage = () => {
-  const { Title } = Typography;
+  // getAccess
+  const history = useHistory();
   const dispatch = useDispatch();
+
+  const { Title } = Typography;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const access_token = localStorage.getItem("access_token");
+  const isLogin = useSelector((state) => state.isLogin);
 
-  const history = useHistory();
-  const access_token = useSelector((state) => state.access_token);
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYmid slice",
-    },
-  };
+  useEffect(() => {
+    localStorage.clear();
+    dispatch(userLogout());
+  }, []);
+
+  useEffect(() => {
+    if (isLogin) {
+      history.push("/homepage");
+      swal({
+        title: "Hello!",
+        text: "success login to the apps",
+        icon: "success",
+        button: "Close",
+      });
+    }
+  }, [isLogin]);
 
   function login() {
-    console.log("login");
     dispatch(userLogin(email, password));
-    localStorage.setItem("access_token", access_token);
-    let access = localStorage.getItem("access_token");
-    if (access) {
-      swal("Good job!", "Success Login", "success");
-      history.push("/homepage");
-      console.log("success login and redirect to homepage");
-    } else {
-      swal("Ops!", "email or password wrong!");
-      console.log("error >>> email or password wrong");
-    }
   }
 
   function emailHandler(e) {
@@ -52,7 +52,14 @@ const LoginPage = () => {
     e.preventDefault();
     setPassword(e.target.value);
   }
-
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYmid slice",
+    },
+  };
   return (
     <div className="login">
       <div className="section-login">
@@ -76,8 +83,6 @@ const LoginPage = () => {
             <Title style={{ fontWeight: "bolder", color: "white" }}>
               Login
             </Title>
-            {/* <p>{email}</p>
-            <p>{password}</p> */}
             <div className="input-form-login">
               <Form>
                 <input
