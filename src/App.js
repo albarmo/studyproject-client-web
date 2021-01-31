@@ -9,7 +9,8 @@ import {
   LoginPage,
   RegisterPage,
   HomePage,
-} from "./pages/index.js";  
+  CourseMaterials,
+} from "./pages/index.js";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route exact path="/homepage" component={HomePage} />
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/register" component={RegisterPage} />
+          <Route exact path="/course/:name" component={CourseMaterials} />
         </Switch>
       </Router>
     </div>

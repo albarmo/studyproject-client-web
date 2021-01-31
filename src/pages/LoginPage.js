@@ -20,7 +20,7 @@ const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const access_token = localStorage.getItem("access_token");
-  const isLogin = useSelector((state) => state.isLogin);
+  const isLogin = useSelector((state) => state.userReducer.isLogin);
 
   useEffect(() => {
     localStorage.clear();

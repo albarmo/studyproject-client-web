@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 // form component input
 import { Select } from "antd";
-import { Form, Input, Typography, Button, Row, Col } from "antd";
+import { Form, Input, Typography, Row, Col } from "antd";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import logo from "../images/logo.png";
 // antd uploader
@@ -142,17 +142,6 @@ const RegisterPage = () => {
 
           {/* register form */}
           <div className="section-right-register">
-            {/* <p style={{ color: "black" }}>image : {JSON.stringify(fileList)}</p>
-            <p style={{ color: "black" }}> Firstname : {firstname}</p>
-            <p style={{ color: "black" }}> lastname : {lastname}</p>
-            <p style={{ color: "black" }}> email : {email}</p>
-            <p style={{ color: "black" }}> phone : {phone_number}</p>
-            <p style={{ color: "black" }}> school : {school}</p>
-            <p style={{ color: "black" }}> password : {password}</p>
-            <p style={{ color: "black" }}> re password : {retypePassword}</p>
-            <p style={{ color: "black" }}> class : {classType}</p>
-            <p style={{ color: "black" }}> gender : {gender}</p> */}
-
             <div className="register-right-header">
               <Title style={{ fontWeight: "bold" }}>Register</Title>
               <img src={logo} alt="logo" width="150" height="150"></img>

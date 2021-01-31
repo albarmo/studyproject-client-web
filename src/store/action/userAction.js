@@ -38,7 +38,7 @@ export const userRegister = (data, email) => {
     })
       .then(({ data }) => {
         console.log("success register new user", email);
-        swal("Success Created new Account!", email);
+        swal("Success Created new Account!");
       })
       .catch((error) => {
         console.log(error.message, "error while register - userAction");

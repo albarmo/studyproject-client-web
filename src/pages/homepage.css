@@ -1,0 +1,14 @@
+.classroom-container {
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-items {
+  margin-left: 100px;
+  width: 80%;
+  background-color: transparent;
+  display: flex;
+}

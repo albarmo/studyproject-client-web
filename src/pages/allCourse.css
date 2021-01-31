@@ -1,0 +1,14 @@
+.course {
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-course {
+  background-color: turquoise;
+  width: 90%;
+  min-height: 300px;
+}
