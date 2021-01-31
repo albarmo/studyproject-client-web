@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory, Link } from "react-router-dom";
 // antd ui components
 import { Button, Typography } from "antd";
-import "./LandingPage.css";
+import "../components/custom.css";
 import "../components/navbar";
 import Navbar from "../components/navbar";
 
@@ -25,21 +25,21 @@ const LandingPage = () => {
   };
   return (
     <>
-      <div className="landing">
-        <div className="section">
-          <Navbar />
-          <div className="container-content">
-            <div className="section-left">
-              <div className="section-left-content">
-                <div>
-                  <Title style={{ fontWeight: "bolder" }}>StudyProject</Title>
-                  <p>
-                    Quis lobortis massa vel morbi ac mi, eu senectus. A nullam
-                    vestibulum sed facilisi et nulla id bibendum elementum.
-                    Lectus dui sollicitudin id elementum aliquam placerat
-                    pretium ornare turpis.
-                  </p>
-                </div>
+      <Navbar/>
+      <div className="header">
+        <div className="overlay">
+          <div className="figure">
+              <Lottie options={defaultOptions} width="100%" height="100%" />
+            </div>
+          <div className="container">
+            <div className="description">
+              <Title style={{ fontWeight: "bolder" }}>StudyProject</Title>
+                <p class="lead">
+                  Quis lobortis massa vel morbi ac mi, eu senectus. A nullam
+                  vestibulum sed facilisi et nulla id bibendum elementum.
+                  Lectus dui sollicitudin id elementum aliquam placerat
+                  pretium ornare turpis.
+                </p>
                 <Link to="/login">
                   <div className="btn-landing" type="primary">
                     <Title
@@ -47,35 +47,23 @@ const LandingPage = () => {
                       style={{
                         fontWeight: "bolder",
                         color: "white",
+                        margin: 0,
                       }}
                     >
                       SIGN IN
                     </Title>
                   </div>
                 </Link>
-                <div>
+                <div className="register-link">
                   <p>
-                    Dont hanve account?...
-                    <Link to="/register">
-                      <Title
-                        level={4}
-                        style={{
-                          fontWeight: "bolder",
-                        }}
-                      >
-                        Register
-                      </Title>
-                    </Link>
+                    Dont hanve account?... <Link to="/register"> Register here</Link>
                   </p>
                 </div>
-              </div>
-            </div>
-            <div className="section-right">
-              <Lottie options={defaultOptions} width="100%" height="100%" />
             </div>
           </div>
         </div>
       </div>
+      
     </>
   );
 };
