@@ -10,6 +10,7 @@ import {
   RegisterPage,
   HomePage,
   CourseMaterials,
+  courseDetails,
 } from "./pages/index.js";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/register" component={RegisterPage} />
           <Route exact path="/course/:name" component={CourseMaterials} />
+          <Route exact path="/course/details/:id" component={courseDetails} />
         </Switch>
       </Router>
     </div>

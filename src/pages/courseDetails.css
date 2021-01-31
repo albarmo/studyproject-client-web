@@ -1,0 +1,40 @@
+.container-course-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: gray;
+}
+
+.course-detail-title {
+  font-weight: bold;
+}
+
+.course-details-header {
+  background-color: transparent;
+  text-align: left;
+  width: 40%;
+  margin-left: 10%;
+  line-height: 0.9;
+}
+
+.course-details {
+  height: 100%;
+  width: 80%;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+}
+
+.course-details-left {
+  background-color: rebeccapurple;
+  width: 60%;
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.course-details-right {
+  background-color: royalblue;
+  width: 50%;
+}

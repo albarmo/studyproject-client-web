@@ -1,0 +1,29 @@
+.card-course {
+  background-color: transparent;
+  width: 90%;
+  min-height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.card-course-image {
+  background-color: gray;
+  width: 15%;
+  height: 100%;
+}
+
+.card-course-content {
+  background-color: transparent;
+  width: 80%;
+  height: 50%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  font-weight: bold;
+}
