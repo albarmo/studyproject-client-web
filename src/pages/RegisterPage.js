@@ -21,14 +21,6 @@ const RegisterPage = () => {
   const { Title } = Typography;
   const { Option } = Select;
 
-  const [fileList, setFileList] = useState([
-    {
-      uid: "-1",
-      name: "avatar.png",
-      status: "done",
-      url: "https://vimakdentalcentre.co.ke/assets/fe/images/avatar.png",
-    },
-  ]);
   const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -38,26 +30,7 @@ const RegisterPage = () => {
   const [retypePassword, setRetypePassword] = useState("");
   const [gender, setGender] = useState("");
   const [classType, setclassType] = useState("");
-
-  //image uploader
-  const onChange = ({ fileList: newFileList }) => {
-    setFileList(newFileList);
-  };
-
-  const onPreview = async (file) => {
-    let src = file.url;
-    if (!src) {
-      src = await new Promise((resolve) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file.originFileObj);
-        reader.onload = () => resolve(reader.result);
-      });
-    }
-    const image = new Image();
-    image.src = src;
-    const imgWindow = window.open(src);
-    imgWindow.document.write(image.outerHTML);
-  };
+  const [profile_image, setImage] = useState("");
 
   function firstNameHandler(e) {
     e.preventDefault();
@@ -106,13 +79,35 @@ const RegisterPage = () => {
     setclassType(value);
   }
 
+  function imageHandler(e) {
+    console.log("image handler");
+    setImage(e.target.files[0]);
+    console.log(profile_image, "image loaded");
+  }
+
+  function clearProfileImage() {
+    setImage("");
+    console.log("Profile Image Removed");
+  }
+
   function register() {
     // dispatch register
     console.log("register");
     let fullname = `${firstname} ${lastname}`;
+    var data = new FormData();
+    data.append("profile_image", profile_image);
+    data.append("fullname", fullname);
+    data.append("email", email);
+    data.append("school", school);
+    data.append("phone_number", phone_number);
+    data.append("password", password);
+    data.append("class", classType);
+    data.append("gender", gender);
+    console.log(data, "<< from formdata");
+
     const payload = {
       fullname,
-      fileList: "image-dummy",
+      profile_image,
       phone_number,
       email,
       gender,
@@ -120,7 +115,7 @@ const RegisterPage = () => {
       school,
       password,
     };
-    dispatch(userRegister(payload));
+    dispatch(userRegister(data, payload.email));
     // history.push("/login");
   }
 
@@ -167,21 +162,39 @@ const RegisterPage = () => {
               <div className="register-form-left">
                 <div className="top-form-register">
                   <div className="input-file">
-                    <ImgCrop>
-                      <Upload
-                        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-                        listType="picture-card"
-                        fileList={fileList}
-                        onChange={onChange}
-                      >
-                        {fileList.length < 1 && "+ Upload"}
-                      </Upload>
-                    </ImgCrop>
+                    {/* profile image */}
+                    {profile_image ? (
+                      <>
+                        <img
+                          src={URL.createObjectURL(profile_image)}
+                          alt={profile_image.name}
+                          width="90px"
+                          height="auto"
+                        />
+                        <p
+                          style={{ fontWeight: "normal" }}
+                          onClick={clearProfileImage}
+                        >
+                          {profile_image.name}
+                        </p>
+                      </>
+                    ) : null}
+
+                    {!profile_image ? (
+                      <input
+                        type="file"
+                        name="profile_image"
+                        id="profile_image"
+                        onChange={imageHandler}
+                      />
+                    ) : null}
                   </div>
 
                   {/* firtst name */}
                   <Input
                     placeholder="First Name"
+                    name="firstname"
+                    id="firstname"
                     onChange={(e) => firstNameHandler(e)}
                     style={{
                       width: "90%",
@@ -195,22 +208,28 @@ const RegisterPage = () => {
                 {/* lastname */}
                 <Input
                   placeholder="Last Name"
+                  name="lastname"
+                  id="lastname"
                   onChange={(e) => lastNameHandler(e)}
                   style={{
                     width: "90%",
                     height: "50px",
                     left: "5px",
                     border: "",
+                    top: "20px",
                   }}
                 />
 
                 {/* email */}
                 <Input
                   placeholder="Email"
+                  name="email"
+                  id="email"
                   onChange={(e) => emailHandler(e)}
                   style={{
                     width: "90%",
                     height: "50px",
+                    top: "10px",
                     left: "5px",
                     border: "",
                   }}
@@ -219,6 +238,8 @@ const RegisterPage = () => {
                 {/* school */}
                 <Input
                   placeholder="School name"
+                  name="school"
+                  id="school"
                   onChange={(e) => schoolHandler(e)}
                   style={{
                     width: "90%",
@@ -243,6 +264,8 @@ const RegisterPage = () => {
                     <Col span={16} style={{ left: "15px" }}>
                       <Input
                         defaultValue=""
+                        name="phone_number"
+                        id="phone_number"
                         placeholder="123-123-123"
                         onChange={(e) => phoneNumberHandler(e)}
                       />
@@ -255,6 +278,8 @@ const RegisterPage = () => {
                 {/* password */}
                 <Input.Password
                   placeholder="Password"
+                  name="password"
+                  id="password"
                   onChange={(e) => passwordHandler(e)}
                   style={{
                     top: "-10px",
@@ -287,6 +312,8 @@ const RegisterPage = () => {
                 {/* gender selcet */}
                 <Select
                   defaultValue="gender"
+                  name="gender"
+                  id="gender"
                   onChange={genderHandleChange}
                   style={{
                     width: "90%",
@@ -301,6 +328,8 @@ const RegisterPage = () => {
                 {/* class selcet */}
                 <Select
                   defaultValue="Class"
+                  name="class"
+                  id="class"
                   onChange={(e) => classTypeHandler(e.value)}
                   style={{
                     width: "90%",

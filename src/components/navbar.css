@@ -6,6 +6,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  margin-top: 2%;
 }
 
 .logo {
@@ -13,7 +14,7 @@
   height: auto;
   width: auto;
   text-align: left;
-  margin-left: 6%;
+  margin-left: 5%;
 }
 
 .menu {

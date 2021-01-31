@@ -25,41 +25,23 @@ export const userLogin = (email, password) => {
   };
 };
 
-export const userRegister = (payload) => {
-  console.log(payload, "action");
+export const userRegister = (data, email) => {
+  console.log(data, "parameter <<< action <<< register");
   return (dispatch) => {
-    const {
-      classType,
-      email,
-      fileList,
-      fullname,
-      gender,
-      password,
-      phone_number,
-      school,
-    } = payload;
-
-    console.log(email);
     axios({
       method: "POST",
       url: "http://localhost:5000/user/register",
-      data: {
-        fullname: fullname,
-        profile_image: fileList,
-        phone_number: phone_number,
-        email: email,
-        gender: gender,
-        class: classType,
-        school: school,
-        password: password,
+      data: data,
+      headers: {
+        "Content-Type": "multipart/form-data",
       },
     })
       .then(({ data }) => {
-        console.log("success register new user", data);
-        swal("Success Created new Account!", data.email);
+        console.log("success register new user", email);
+        swal("Success Created new Account!", email);
       })
       .catch((error) => {
-        console.log(error, "error while register - userAction");
+        console.log(error.message, "error while register - userAction");
       });
   };
 };
