@@ -3,7 +3,6 @@ import { useHistory, Link } from "react-router-dom";
 // antd ui components
 import { Button, Typography } from "antd";
 import "../components/custom.css";
-import "../components/navbar";
 import Navbar from "../components/navbar";
 
 // import animation from lottie
@@ -32,9 +31,9 @@ const LandingPage = () => {
               <Lottie options={defaultOptions} width="100%" height="100%" />
             </div>
           <div className="container">
-            <div className="description">
+            <div className="caption">
               <Title style={{ fontWeight: "bolder" }}>StudyProject</Title>
-                <p class="lead">
+                <p className="lead">
                   Quis lobortis massa vel morbi ac mi, eu senectus. A nullam
                   vestibulum sed facilisi et nulla id bibendum elementum.
                   Lectus dui sollicitudin id elementum aliquam placerat

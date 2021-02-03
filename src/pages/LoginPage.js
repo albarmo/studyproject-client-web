@@ -66,7 +66,7 @@ const LoginPage = () => {
           <Logo></Logo>
           <div className="col-md-8">
             <div className="container">
-                <div className="login-description">
+                <div className="login-caption">
                   <Title style={{ fontWeight: "bolder" }}>
                       Something About The Apps
                   </Title>

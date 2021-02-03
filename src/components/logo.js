@@ -7,9 +7,11 @@ const Logo = () => {
   return (
     <>
       <nav className="navbar navbar-expand-md fixed-top navbar-light">
-          <div class="container-fluid">
-            <div class="navbar-brand" href="#">
-              <img src={logo} alt="logo" width="150" height="150"></img>
+          <div className="container-fluid">
+            <div className="navbar-brand">
+              <Link to="/">
+                <img src={logo} alt="logo" width="150" height="150"/>
+              </Link>
             </div>
           </div>
       </nav>

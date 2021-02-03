@@ -20,31 +20,31 @@ const NavbarLogin = () => {
   return (
     <>
       <nav className="navbar navbar-expand-md fixed-top navbar-light">
-            <div class="container-fluid">
-            <div class="navbar-brand" href="#">
+            <div className="container-fluid">
+            <div className="navbar-brand" href="#">
                 <img src={logo} alt="logo" width="150" height="150"></img>
               </div>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+              <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
               </button>
-              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav ml-auto">
+              <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div className="navbar-nav ml-auto">
                   <Link to="/register">
-                    <div class="nav-link">
+                    <div className="nav-link">
                       <h3 style={{fontWeight: "bold",fontSize: "20px"}}>Register</h3>
                     </div>
                   </Link>
                   <Link to="/about">
-                    <div class="nav-link">
+                    <div className="nav-link">
                         <h3 style={{fontWeight: "bold",fontSize: "20px"}}>About</h3>
                     </div>
                   </Link>
                   <Link to="/contact">
-                    <div class="nav-link">
+                    <div className="nav-link">
                       <h3 style={{fontWeight: "bold",fontSize: "20px"}}>Contact</h3>
                     </div>
                   </Link>
-                  <div class="nav-link">
+                  <div className="nav-link">
                       <h3 style={{ fontWeight: "bold", fontSize: "20px" }} onClick={logout}>Logout</h3>
                     </div>
                 </div>
