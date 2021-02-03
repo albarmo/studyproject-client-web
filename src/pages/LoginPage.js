@@ -5,7 +5,7 @@ import { userLogin, userLogout } from "../store/action/userAction";
 import { Link, useHistory } from "react-router-dom";
 import swal from "sweetalert";
 
-import "./loginPage.css";
+import "../components/custom.css";
 import Logo from "../components/logo";
 
 import Lottie from "react-lottie";
@@ -61,65 +61,69 @@ const LoginPage = () => {
     },
   };
   return (
-    <div className="login">
-      <div className="section-login">
-        <Logo />
-        <div className="container-content-login">
-          {/* 1st section */}
-          <div className="section-left-login">
-            <div className="section-left-content-login">
-              <Title style={{ fontWeight: "bolder" }}>
-                Something About The Apps
+    <>
+      <div className="login">
+          <Logo></Logo>
+          <div className="col-md-8">
+            <div className="container">
+                <div className="login-description">
+                  <Title style={{ fontWeight: "bolder" }}>
+                      Something About The Apps
+                  </Title>
+                  <div className="login-figure">
+                    <Lottie options={defaultOptions} width="100%" height="100%" />
+                  </div>
+                  <p>
+                    Quis lobortis massa vel morbi ac mi, eu senectus. A nullam
+                    vestibulum sed facilisi et nulla id bibendum elementum
+                  </p>
+                </div>
+            </div>
+          </div>
+          <div className="col-md-4 login-form">
+            <div >
+            <div className="login-title">
+              <Title style={{ fontWeight: "bolder", color: "white" }}>
+                Login
               </Title>
-              <Lottie options={defaultOptions} width="100%" height="100%" />
-              <p>
-                Quis lobortis massa vel morbi ac mi, eu senectus. A nullam
-                vestibulum sed facilisi et nulla id bibendum elementum
-              </p>
-            </div>
-          </div>
-          {/* 2nd section */}
-          <div className="section-right-login">
-            <Title style={{ fontWeight: "bolder", color: "white" }}>
-              Login
-            </Title>
-            <div className="input-form-login">
+            </div> 
+            <div className="input-login">
               <Form>
-                <input
-                  className="input-login"
-                  type="email"
-                  id="email"
-                  name="email"
-                  onChange={(e) => emailHandler(e)}
-                  placeholder="email..."
-                ></input>
+                  <input
+                    className="input-form-login"
+                    type="email"
+                    id="email"
+                    name="email"
+                    onChange={(e) => emailHandler(e)}
+                    placeholder="Email address"
+                  ></input>
 
-                <input
-                  className="input-login"
-                  type="password"
-                  id="password"
-                  name="password"
-                  onChange={(e) => passwordHandler(e)}
-                  placeholder="password..."
-                ></input>
+                  <input
+                    className="input-form-login"
+                    type="password"
+                    id="password"
+                    name="password"
+                    onChange={(e) => passwordHandler(e)}
+                    placeholder="password..."
+                  ></input>
 
-                <h3 className="btn-signIn" onClick={login} htmlType="submit">
-                  SIGN IN
-                </h3>
-              </Form>
+                  <button className="btn-signIn" onClick={login} htmlType="submit">
+                    SIGN IN
+                  </button>
+                </Form>
+              </div>
+              <div className="register-link">
+                <p>Dont have an account?...</p>
+                <Link to="/register">
+                  <Title level={3} style={{ color: "white"}}>
+                    Register
+                  </Title>
+                </Link>
+              </div>
             </div>
-            <p>
-              Dont have an account?...
-              <Link to="/register">
-                <Title level={5} style={{ color: "white", fontWeight: "bold" }}>
-                  Register
-                </Title>
-              </Link>
-            </p>
           </div>
-        </div>
       </div>
-    </div>
+    </>
   );
 };
 
