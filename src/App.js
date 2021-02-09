@@ -11,6 +11,7 @@ import {
   HomePage,
   CourseMaterials,
   courseDetails,
+  aboutPage,
 } from "./pages/index.js";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/homepage" component={HomePage} />
+          <Route exact path="/about" component={aboutPage} />
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/register" component={RegisterPage} />
           <Route exact path="/course/:name" component={CourseMaterials} />
